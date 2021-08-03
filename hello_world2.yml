@@ -1,0 +1,13 @@
+---
+- name: This is a hello world example
+  hosts: userver1
+  vars:
+    ansible_user: {{ username }}
+    ansible_password: {{ password }}
+
+  tasks:
+    - name: Create a file called '/tmp/testfile.txt' with the content 'hello world'
+      copy:
+        content: "hello world $USER "
+        dest: /tmp/testfile.txt
+        state: overwrite
